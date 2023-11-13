@@ -20,6 +20,7 @@ export default function TodoList() {
     setTodos(prev=>prev.map(item=>(item.id===todoId?newValue:item)))
     }
     const completeTodo = id => {
+        //eslint-disable-next-line
         const updatedTodos = todos.map((todo) => {
             if (todo.id === id) {
                 todo.isComplete = !todo.isComplete;
