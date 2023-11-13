@@ -1,7 +1,6 @@
 import { React, useState } from 'react'
 import TodoForm from './TodoForm'
 import Todo from './Todo'
-
 export default function TodoList() {
     const [todos, setTodos] = useState([])
     const addTodo = (todo) => {
@@ -14,10 +13,10 @@ export default function TodoList() {
         const removeArr = [...todos].filter(todo => todo.id !== id)
         setTodos(removeArr)
     }
-    const updateTodo=(todoId,newValue)=>{
+    const updateTodo = (todoId, newValue) => {
         if (!newValue.text || /^\s*$/.test(newValue.text))
-        return
-    setTodos(prev=>prev.map(item=>(item.id===todoId?newValue:item)))
+            return
+        setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)))
     }
     const completeTodo = id => {
         //eslint-disable-next-line
@@ -29,10 +28,12 @@ export default function TodoList() {
         })
     }
     return (
-        <div>
+        <div >
             <h1>What's The Plan For Today</h1>
             <TodoForm onSubmit={addTodo} />
-            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo}/>
+            <div>
+                <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
+            </div>
         </div>
     )
 }

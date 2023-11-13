@@ -9,10 +9,10 @@ export default function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     })
     const submitUpdate = (value) => {
         updateTodo(Edit.id, value)
-            setEdit({
-                id: null,
-                value: ''
-            })
+        setEdit({
+            id: null,
+            value: ''
+        })
     }
     if (Edit.id)
         return <TodoForm edit={Edit} onSubmit={submitUpdate} />
